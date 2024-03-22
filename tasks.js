@@ -143,7 +143,94 @@ const person={
   console.log("Now I am changing the age from 40 to again 21 after making it immutable");
   person.age=22;
   console.log("Person age = ",person.age);
- 
+
+  // Fetch Data Through Api Problem 7
+// console.log(" ");
+// console.log("Fetch Data Through Api Problem 7");
+// console.log(" ");
+
+//   let myPromise = new Promise((res,rej)=>{
+//     let p = fetch("https://dummyjson.com/products1");
+      
+//     p.then((value)=>{
+//       if(value.ok){
+//       console.log("Data is fetched Successfully")
+//       }
+//       return value.json();
+//     }).then((data)=>{
+//       return res(data);
+//     }).catch((err)=>{
+//       console.log("Error Occured")
+//       return rej("Error Occured during data fetching");
+//     })
+//    })
+//    myPromise.then((message)=>{
+//     console.log(message);
+//    }).catch((error)=>{
+//     console.log(error);
+//    })
+
+   // Delayed Greeting Problem 8
+    console.log(" ");
+    console.log("Delayed Greeting Problem 8");
+    console.log(" ");
+
+    function delayGreeting(callback,seconds){
+      
+      setTimeout(callback,seconds)
+      
+    }
+    function hi(){
+      console.log("Hi!!")
+    }
+    delayGreeting(hi,4000);
+
+    // Sum Array with Reduce Problem 9
+    console.log(" ");
+    console.log("Sum Array with Reduce Problem 9");
+    console.log(" ");
+
+    const array2=[2,3,4,3,2,1]
+
+    const sumArray=function(array){
+      return array.reduce((h1,h2)=>{
+      return h1+h2;
+      })
+    }
+  
+    console.log(sumArray(array2));
+
+     // Depp Copies Problem 10
+     console.log(" ");
+     console.log("Deep Copy Problem 10");
+     console.log(" ");
+
+     const Employee={
+      names:{
+       first: "Hammad",
+       last: "Khalil" 
+        },
+      age:21,
+      degree:"Software Engineering"
+    }
+
+    function deepCopy(obj){
+      let deepObj=JSON.parse(JSON.stringify(obj));
+      deepObj.names.first="Ali"
+      return deepObj;
+    }
+
+ //   Employee.names.first = "Hamza";
+    console.log(Employee);
+    console.log(deepCopy(Employee));
+
+
+        
+   
+
+  
+
+
 
 
 
