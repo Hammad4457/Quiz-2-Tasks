@@ -56,3 +56,95 @@ console.log("HammAd", "DAMHam");
 console.log(isAnagram("HammAd", "DAMHam"));
 console.log("Haseeb", "Naseeb");
 console.log(isAnagram("Haseeb", "Naseeb"));
+
+// Parentheses Problem 4
+console.log(" ");
+console.log("Parentheses Problem 4");
+console.log(" ");
+
+function isBalancedParenthesis(string){
+  let openBracketCount  =0;
+  let closeBracketCount =0;
+  let openCurlyCount  =0;
+  let closeCurlyCount =0;
+  let openSquareCount  =0;
+  let closeSquareCount =0;
+  for(let i=0;i<string.length;i++){
+    if(string[i]==='('){
+      openBracketCount++;
+    }
+    else if(string[i]===')'){
+      closeBracketCount++;
+    }
+    else if(string[i]==='{'){
+      openCurlyCount++;
+    }
+    else if(string[i]==='}'){
+      closeCurlyCount++;
+    }
+    else if(string[i]==='['){
+      openSquareCount++;
+    }
+    else if(string[i]===']'){
+      closeSquareCount++;
+    }
+  }
+  if((openBracketCount==closeBracketCount) && (openCurlyCount == closeCurlyCount) && (openSquareCount == closeSquareCount)){
+    return true;
+  }
+  return false;
+}
+
+console.log("[] [ }  {}");
+console.log(isBalancedParenthesis("[] [ }  {}"));
+console.log(" ");
+console.log("[ { ( ) } ]");
+console.log(isBalancedParenthesis("[(({})])"));
+
+// Doubling Using Map Problem 5
+console.log(" ");
+console.log("Doubling Using Map Problem 5");
+console.log(" ");
+
+
+
+const array1=[2,6,3,4,9];
+
+// let newArr = array1.map(function(value){
+//   return value * value;
+// })
+
+const doubling = (number)=>number*2;
+const newArr = array1.map(doubling);
+
+console.log(array1);
+console.log(newArr);
+
+// make Immutable Problem 6
+console.log(" ");
+console.log("Making Immutable Problem 6");
+console.log(" ");
+
+makingImmutable=(obj)=> Object.freeze(obj);
+
+const person={
+  name1:"Hammad",
+  age:21,
+  degree:"Software Engineering"
+} 
+  console.log("Person age = ",person.age);
+  console.log("Now I am changing the age from 21 to 40 before freezing");
+
+  person.age=40;
+  console.log("Person age = ",person.age);
+
+  makingImmutable(person);
+
+  console.log("Now I am changing the age from 40 to again 21 after making it immutable");
+  person.age=22;
+  console.log("Person age = ",person.age);
+ 
+
+
+
+
