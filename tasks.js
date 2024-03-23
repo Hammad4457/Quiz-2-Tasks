@@ -68,43 +68,60 @@ console.log(" ");
 console.log("Parentheses Problem 4");
 console.log(" ");
 
-function isBalancedParenthesis(string) {
-  let openBracketCount = 0;
-  let closeBracketCount = 0;
-  let openCurlyCount = 0;
-  let closeCurlyCount = 0;
-  let openSquareCount = 0;
-  let closeSquareCount = 0;
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === "(") {
-      openBracketCount++;
-    } else if (string[i] === ")") {
-      closeBracketCount++;
-    } else if (string[i] === "{") {
-      openCurlyCount++;
-    } else if (string[i] === "}") {
-      closeCurlyCount++;
-    } else if (string[i] === "[") {
-      openSquareCount++;
-    } else if (string[i] === "]") {
-      closeSquareCount++;
+function isBalance(str) {
+  let stack = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] == "(") {
+      stack.push(str[i]);
+    } else if (str[i] == ")") {
+      if (stack.length === 0 || stack.pop() !== "(") return false;
     }
   }
-  if (
-    openBracketCount == closeBracketCount &&
-    openCurlyCount == closeCurlyCount &&
-    openSquareCount == closeSquareCount
-  ) {
-    return true;
-  }
-  return false;
+  return stack.length === 0;
 }
 
-console.log("[] [ }  {}");
-console.log(isBalancedParenthesis("[] [ }  {}"));
-console.log(" ");
-console.log("[ { ( ) } ]");
-console.log(isBalancedParenthesis("[(({})])"));
+console.log("()(()())");
+console.log(isBalance("()(()())"));
+console.log("())()");
+console.log(isBalance("())()"));
+
+// function isBalancedParenthesis(string) {
+//   let openBracketCount = 0;
+//   let closeBracketCount = 0;
+//   let openCurlyCount = 0;
+//   let closeCurlyCount = 0;
+//   let openSquareCount = 0;
+//   let closeSquareCount = 0;
+//   for (let i = 0; i < string.length; i++) {
+//     if (string[i] === "(") {
+//       openBracketCount++;
+//     } else if (string[i] === ")") {
+//       closeBracketCount++;
+//     } else if (string[i] === "{") {
+//       openCurlyCount++;
+//     } else if (string[i] === "}") {
+//       closeCurlyCount++;
+//     } else if (string[i] === "[") {
+//       openSquareCount++;
+//     } else if (string[i] === "]") {
+//       closeSquareCount++;
+//     }
+//   }
+//   if (
+//     openBracketCount == closeBracketCount &&
+//     openCurlyCount == closeCurlyCount &&
+//     openSquareCount == closeSquareCount
+//   ) {
+//     return true;
+//   }
+//   return false;
+// }
+
+// console.log("[] [ }  {}");
+// console.log(isBalancedParenthesis("[] [ }  {}"));
+// console.log(" ");
+// console.log("[ { ( ) } ]");
+// console.log(isBalancedParenthesis("[(({})])"));
 
 // Doubling Using Map Problem 5
 console.log(" ");
